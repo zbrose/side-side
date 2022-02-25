@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1>Spring Forward Auth</h1>
+    <nav>
+        <ul>
+            <% if (user) { %>
+             <li><a href="/users/new">Sign-up</a></li>
+            <li><a href="/users/logout">Log Out</a></li> 
+             
+            <% } else {%>
+            <li><a href="/users/new">Sign-up</a></li>
+            <li><a href="/users/login">Log In</a></li>
+            <% } %> 
+        </ul>
+    </nav>
     <%- body  %> 
     
 </body>
