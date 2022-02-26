@@ -5,6 +5,7 @@ require('dotenv').config()// allows us to access env vars
 const cookieParser = require('cookie-parser')
 const cryptojs = require('crypto-js')
 const db = require('./models/index.js')
+const axios = require('axios')
 
 
 //MIDDLEWARE
@@ -31,6 +32,15 @@ app.use('/users',require('./controllers/users.js'))
 app.get('/',(req,res)=>{
     res.render('home.ejs')
 })
+
+app.get('/results',(req,res)=>{
+    axios.get("https://api.discogs.com/releases/16170061")
+    .then(response=>{
+        res.send(response.data)
+    })
+    // res.send('home.ejs')
+})
+
 
 
 const PORT = process.env.PORT || 8000
