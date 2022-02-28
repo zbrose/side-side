@@ -21,17 +21,17 @@ Increditable is a music database and organization app in which a user can get in
 /
 ![wireframe 1](./Images/wireframe-1.png/)
 /login
-![wireframe 2](./Images/wireframe-2/)
+![wireframe 2](./Images/wireframe-2.png/)
 /signup
-![wireframe 3](./Images/wireframe-3/)
+![wireframe 3](./Images/wireframe-3.png/)
 /bookmarks
-![wireframe 4](./Images/wireframe-4/)
+![wireframe 4](./Images/wireframe-4.png/)
 /search
-![wireframe 5](./Images/wireframe-5/)
+![wireframe 5](./Images/wireframe-5.png/)
 /results
-![wireframe 6](./Images/wireframe-6/)
+![wireframe 6](./Images/wireframe-6.png/)
 /results/:id
-![wireframe 7](./Images/wireframe-7/)
+![wireframe 7](./Images/wireframe-7.png/)
 
 ## User Stories
 1. I want to be able to see a list of albums based on my search of album title, song title, or artist.
