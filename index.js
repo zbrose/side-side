@@ -33,13 +33,24 @@ app.get('/',(req,res)=>{
     res.render('home.ejs')
 })
 
-app.get('/results',(req,res)=>{
-    axios.get("https://api.discogs.com/releases/16170061")
-    .then(response=>{
-        res.send(response.data)
-    })
-    // res.send('home.ejs')
-})
+// app.get('/search',(req,res)=>{
+//     axios.get(`https://api.discogs.com/database/search?q=&${req.query.q}key=${process.env.DISCOGS_API_KEY}&secret=${process.env.SECRETTWO}`)
+//     .then(response=>{
+//         // console.log(response.data)
+//         res.send(response.data)
+//     })
+//     // res.send('home.ejs')
+// })
+// app.get('/search',(req,res)=>{
+//     axios.get(`https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums?album_type=SINGLE&offset=20&limit=10`)
+//     .then(response=>{
+//         console.log(response.data)
+//         res.send(response.data)
+//     })
+//     .catch()
+//     // res.send('home.ejs')
+// })
+
 
 
 
