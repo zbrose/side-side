@@ -10,12 +10,16 @@
     <%}) %> 
 </ul>
 
-<form action="/profile" method="post">
+<form action="/users/<%= user.id %>/album" method="post">
     <label for="bookmark"></label>
+    <input hidden type="text" name="title" value="<%= results.title %>">
+    <input hidden type="text" name="artist" value="<%= results.artists[0].name %>">
+    <input hidden value=" <%= results.images[0].uri%>" name="img_url">
+    
     <input type="submit" value="Add to Collection">
 </form>
 
-<form method="post" action="/releases">
+<form method="post" action="/">
     <label for="comment"></label>
     <input type="text" id="comment" placeholder="make a comment" name="">
     <input type="submit">

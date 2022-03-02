@@ -14,6 +14,9 @@ module.exports = {
       artist:{
         type: Sequelize.STRING
       },
+      img_url: {
+        type: Sequelize.TEXT
+      },
       userId: {
         type: Sequelize.INTEGER
       },

@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   album.init({
     title: DataTypes.STRING,
     artist: DataTypes.STRING,
+    img_url: DataTypes.TEXT,
     userId: DataTypes.INTEGER
   }, {
     sequelize,
@@ -26,3 +27,5 @@ module.exports = (sequelize, DataTypes) => {
   });
   return album;
 };
+
+// add img url

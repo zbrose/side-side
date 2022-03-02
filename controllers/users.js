@@ -37,6 +37,18 @@ router.post('/', async (req,res)=>{
     }
 })
 
+router.post('/:id/album', async (req,res)=>{
+    try {
+        const user = await db.user.findByPk(req.params.id)
+        await user.createAlbum(req.body)
+        console.log(req.body,req.params.id,'added to collection')
+        res.redirect('/users/profile')
+    }catch(err){
+        console.log(err)
+    }
+})
+
+
 router.get('/login',(req,res)=>{
     res.render('users/login.ejs', {error: null})
 })
@@ -47,7 +59,7 @@ router.post('/login', async (req,res)=>{
    })
    if(!user){ //didnt find usr in database
        console.log('user not found')
-       res.render('users/login.jes',{error: 'Invalid email/password'})
+       res.render('users/login.ejs',{error: 'Invalid email/password'})
    } else if (!bcrypt.compareSync(req.body.password, user.password)) {
        console.log('incorrect password')
        res.render('users/login.ejs',{error: 'Invalid email/password'})

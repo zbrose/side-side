@@ -43,7 +43,7 @@ app.get('/results',(req,res)=>{
     .then(response=>{
         const artistMatches = response.data.results
         const filteredArtists = artistMatches.filter(result=> {return result.type==='artist'})
-        res.render('artists/index.ejs',{artists: filteredArtists})  
+        res.render('releases/index.ejs',{artists: filteredArtists})  
         // res.send(response.data.results)
     })
     .catch(err=>{
