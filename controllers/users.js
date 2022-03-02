@@ -7,8 +7,14 @@ const cryptojs = require('crypto-js')
 require('dotenv').config()
 
 
-router.get('/profile',(req,res)=>{
-    res.render('users/profile.ejs')
+router.get('/profile', async (req,res)=>{
+    const currentUser = await db.user.findOne({
+        where: {
+            id: res.locals.user.id
+        }
+    })
+    const faves = await currentUser.getAlbums()
+    res.render('users/profile.ejs',{faves})
 })
 
 router.get('/new',(req,res)=>{
@@ -80,6 +86,20 @@ router.get('/logout',(req,res)=>{
     console.log('loggin out')
     res.clearCookie('userId')
     res.redirect('/')
+})
+
+router.delete('/profile',async (req,res)=>{
+    try{
+        const userDelete = await db.user.findOne({
+            where: {
+                id: res.locals.user.id
+            }
+        })
+        await userDelete.removeAlbum()
+        res.redirect('users/profile')
+    }catch (err){
+        console.log(err)
+    }
 })
 
 module.exports = router 

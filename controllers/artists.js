@@ -15,7 +15,7 @@ router.get('/:id',(req,res)=>{
         filteredReleases.sort((a,b)=>{
           return  b.stats.community.in_collection - a.stats.community.in_collection
         })
-        res.render('releases/show.ejs',{releases: filteredReleases})
+        res.render('albums/show.ejs',{releases: filteredReleases})
         // res.send(filteredReleases)
     })
     .catch(err=>{

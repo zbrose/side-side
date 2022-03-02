@@ -30,7 +30,7 @@ app.use(async (req,res,next)=>{
 //CONTROLLERS
 app.use('/users',require('./controllers/users.js'))
 app.use('/artists',require('./controllers/artists.js'))
-app.use('/releases',require('./controllers/releases.js'))
+app.use('/albums',require('./controllers/albums.js'))
 
 //ROUTES
 app.get('/',(req,res)=>{
@@ -43,7 +43,7 @@ app.get('/results',(req,res)=>{
     .then(response=>{
         const artistMatches = response.data.results
         const filteredArtists = artistMatches.filter(result=> {return result.type==='artist'})
-        res.render('releases/index.ejs',{artists: filteredArtists})  
+        res.render('albums/index.ejs',{artists: filteredArtists})  
         // res.send(response.data.results)
     })
     .catch(err=>{
