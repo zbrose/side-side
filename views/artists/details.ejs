@@ -1,13 +1,22 @@
+<h2><%= results.title %> by <%= results.artists[0].name  %></h2>
 
+<img src=" <%= results.images[0].uri%>" width="500px" alt="album cover image">
 
-    <ul>
-<% for( let i = 0; i < releases.length; i++ ) { %>
-    <li> <%=release[i].title %> </li>
-       <li>  <%=release[i].artist %> </li>
-        <li>  <%=release[i].year %> </li>
-        <li>  <%=release[i].stats.community.in_wantlist %> </li>
-        <li>  <%=release[i].stats.community.in_collection %> </li>
-        <li>  <img src="<%=release[i].thumb %>" alt="album cover image"></li>
-         <li>  <a href="/"><button>Album Details</button></a></li>
-<% } %>
-    </ul>
+<ul>Track Listing:
+    <% results.tracklist.forEach(track=>{%>
+            <li><%= track.position %>
+                <%= track.title %> 
+            </li>
+    <%}) %> 
+</ul>
+
+<form action="/profile" method="post">
+    <label for="bookmark"></label>
+    <input type="submit" value="Add to Collection">
+</form>
+
+<form method="post" action="/releases">
+    <label for="comment"></label>
+    <input type="text" id="comment" placeholder="make a comment" name="">
+    <input type="submit">
+</form>

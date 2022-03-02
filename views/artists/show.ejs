@@ -4,12 +4,11 @@
         <% releases.forEach((release)=> { %>
         <li>
             <img src="<%=release.thumb %>" alt="album cover image">
-            <a href="/"><button>Album Details</button></a>
             <%=release.title %> 
             <%=release.artist %> 
-            <%=release.year %> 
-            <%=release.stats.community.in_wantlist %> 
-            <%=release.stats.community.in_collection %> 
+           ( <%=release.year %> )
+            <%=release.id %> 
+            <a href="/releases/<%=release.id %> "><button>Album Details</button></a>
         </li>
         <br>
         <% }) %>

@@ -16,15 +16,12 @@ router.get('/:id',(req,res)=>{
           return  b.stats.community.in_collection - a.stats.community.in_collection
         })
         res.render('artists/show.ejs',{releases: filteredReleases})
-        // res.send(allReleases)
+        // res.send(filteredReleases)
     })
     .catch(err=>{
         console.log(err)
     })
 })
-
-
-
 
 
 module.exports = router

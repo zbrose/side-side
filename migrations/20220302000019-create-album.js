@@ -11,6 +11,12 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      artist:{
+        type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -24,4 +30,4 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('albums');
   }
-};
+}

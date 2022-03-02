@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   albums_categories.init({
-    name: DataTypes.STRING
+    albumId: DataTypes.INTEGER,
+    categoryId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'albums_categories',
