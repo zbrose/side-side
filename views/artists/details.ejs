@@ -1,0 +1,13 @@
+
+
+    <ul>
+<% for( let i = 0; i < releases.length; i++ ) { %>
+    <li> <%=release[i].title %> </li>
+       <li>  <%=release[i].artist %> </li>
+        <li>  <%=release[i].year %> </li>
+        <li>  <%=release[i].stats.community.in_wantlist %> </li>
+        <li>  <%=release[i].stats.community.in_collection %> </li>
+        <li>  <img src="<%=release[i].thumb %>" alt="album cover image"></li>
+         <li>  <a href="/"><button>Album Details</button></a></li>
+<% } %>
+    </ul>

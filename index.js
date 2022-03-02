@@ -6,9 +6,11 @@ const cookieParser = require('cookie-parser')
 const cryptojs = require('crypto-js')
 const db = require('./models/index.js')
 const axios = require('axios')
+const methodOverride = require('method-override')
 
 
 //MIDDLEWARE
+app.use(methodOverride('_method'))
 app.set('view engine', 'ejs') // set the view engine to ejs
 app.use(ejsLayouts) // tell express we want to use layouts
 app.use(cookieParser()) //give us acces to req.cookies
@@ -27,31 +29,26 @@ app.use(async (req,res,next)=>{
 
 //CONTROLLERS
 app.use('/users',require('./controllers/users.js'))
+app.use('/artists',require('./controllers/artists.js'))
 
 //ROUTES
 app.get('/',(req,res)=>{
     res.render('home.ejs')
 })
 
-// app.get('/search',(req,res)=>{
-//     axios.get(`https://api.discogs.com/database/search?q=&${req.query.q}key=${process.env.DISCOGS_API_KEY}&secret=${process.env.SECRETTWO}`)
-//     .then(response=>{
-//         // console.log(response.data)
-//         res.send(response.data)
-//     })
-//     // res.send('home.ejs')
-// })
-// app.get('/search',(req,res)=>{
-//     axios.get(`https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums?album_type=SINGLE&offset=20&limit=10`)
-//     .then(response=>{
-//         console.log(response.data)
-//         res.send(response.data)
-//     })
-//     .catch()
-//     // res.send('home.ejs')
-// })
-
-
+app.get('/results',(req,res)=>{
+    const url = `https://api.discogs.com/database/search?q=${req.query.q}&token=${process.env.DISCOGS_TOKEN}`
+    axios.get(url)
+    .then(response=>{
+        const artistMatches = response.data.results
+        const filteredArtists = artistMatches.filter(result=> {return result.type==='artist'})
+        res.render('artists/index.ejs',{artists: filteredArtists})  
+        // res.send(response.data.results)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 
 
 const PORT = process.env.PORT || 8000

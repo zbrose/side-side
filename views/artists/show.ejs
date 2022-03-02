@@ -1,0 +1,18 @@
+
+<div class="container">
+    <ul>
+        <% releases.forEach((release)=> { %>
+        <li>
+            <img src="<%=release.thumb %>" alt="album cover image">
+            <a href="/"><button>Album Details</button></a>
+            <%=release.title %> 
+            <%=release.artist %> 
+            <%=release.year %> 
+            <%=release.stats.community.in_wantlist %> 
+            <%=release.stats.community.in_collection %> 
+        </li>
+        <br>
+        <% }) %>
+
+    </ul>
+</div>

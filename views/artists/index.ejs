@@ -1,0 +1,8 @@
+<ul>
+    
+    <% artists.forEach(artist => { %>
+        <li><%= artist.title %> </li>
+        <a href="/artists/<%=artist.id%>"><img src="<%=artist.cover_image %>" width="300px" alt="cover image"></a>
+    <% })%>
+
+</ul>

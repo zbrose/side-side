@@ -1,0 +1,11 @@
+sequelize model:create --name fave --attributes name:string
+sequelize db:migrate
+
+remember to change all the stuff in the config.json like dialect etc.
+
+sequelize model:create --name album --attributes title:string
+sequelize model:create --name albums_categories --attributes name:string
+sequelize model:create --name category --attributes name:string,description:text
+sequelize model:create --name comment --attributes content:text
+sequelize db:migrate
+
