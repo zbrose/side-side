@@ -10,19 +10,18 @@
         </form>
         
         <form method="post" action="/categories/albums">
-           
-            <input hidden type="text" id="categorize" value="<%=fave.id%>" name="category">
-            <button type="submit">Add To Category: </button> 
-            <!-- <label for="categories">Add to category:</label> -->
             <select name="category" id="categories">
                 <% categories.forEach(category => { %>
                         <option value="<%=category.id%>"><%=category.name %> </option>
                 <% }) %>
             </select>
+            <button type="submit">Add To Category</button> 
+           
+            <!-- <input hidden type="text" id="categorize" value="<%=//fave.id%>" name="albumId"> -->
+            <!-- <label for="categories">Add to category:</label> -->
 
         </form>
         <!-- <a href="/albums/<%=//fave.id %> "><button>Album Details</button></a> -->
     </div>
 <% }) %>
 
-<!-- make drop down for all categories based off of get route that gets all categories of the user -->

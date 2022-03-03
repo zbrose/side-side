@@ -11,8 +11,10 @@ sequelize model:create --name comment --attributes content:text,userId:integer,a
 sequelize db:migrate
 
 
-put route to update category names/descriptions
+
 connecting categories with albums
 auth stuff
-
+displaying category names under albums 
+displaying more info on albums
+displaying album details from the collection page
 
