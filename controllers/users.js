@@ -9,14 +9,19 @@ require('dotenv').config()
 
 // GET profile page
 router.get('/profile', async (req,res)=>{
-    const currentUser = await db.user.findOne({
-        where: {
-            id: res.locals.user.id
+    if(req.cookies.userId){
+        try{ 
+            const currentUser = await db.user.findOne({where: {id: res.locals.user.id}})
+            const faves = await currentUser.getAlbums()
+            const categories = await currentUser.getCategories()
+            res.render('users/profile.ejs',{faves,categories})
+        }catch (err){
+            console.log(err,'error')
         }
-    })
-    const faves = await currentUser.getAlbums()
-    const categories = await currentUser.getCategories()
-    res.render('users/profile.ejs',{faves,categories})
+    } else {
+        console.log('log in to view profile')
+        res.redirect('/users/login')
+    }
 })
 
 
@@ -48,7 +53,7 @@ router.post('/', async (req,res)=>{
     }
 })
 
-// POST album to databae
+// POST album to database
 router.post('/:id/album', async (req,res)=>{
     try {
         const user = await db.user.findByPk(req.params.id)

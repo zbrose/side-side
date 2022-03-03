@@ -12,8 +12,6 @@ sequelize db:migrate
 
 
 
-connecting categories with albums
-auth stuff
 displaying category names under albums 
 displaying more info on albums inside user profile
 displaying album details from the collection page

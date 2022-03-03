@@ -1,5 +1,10 @@
-<h2>All users albums with associated category</h2>
+<h2><%=foundCategory.name%> </h2>
+<h4><%=foundCategory.description%> </h4>
 
-<% categoriesAlbums.forEach(albums => { %>
-        <p><%= album.title %> </p>
+<% categoriesAlbums.forEach(album => { %>
+        <h3><%= album.title %> by <%= album.artist %> </h3> 
+        <img src=" <%= album.img_url %>" width="250" alt=" <%=album.title %> image">
+        <form action="/categories/<%=album.id%>?_method=DELETE" method="POST">
+                <input type="submit" class="btn btn-danger" value="Remove From Category"/>
+        </form>
 <% }) %>

@@ -10,6 +10,7 @@ require('dotenv').config()
 router.get('/:id',async (req,res)=>{
     try{
         const response = await axios.get(`https://api.discogs.com/masters/${req.params.id}?token=${process.env.DISCOGS_TOKEN}`)
+        
         res.render('albums/details.ejs',{results: response.data})
     }catch (err){
         console.log(err,'error')
@@ -30,6 +31,7 @@ router.delete('/:albumId',async (req,res)=>{
         console.log(err)
     }
 })
+
 
 
 module.exports = router

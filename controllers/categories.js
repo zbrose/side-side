@@ -9,13 +9,16 @@ require('dotenv').config()
 
 // GET list of all categories
 router.get("/", async (req, res) => {
-    try {
-        const categories = await db.category.findAll();
-        res.render("categories/index", { categories });
-    } catch (error) {
-        console.log(error);
-        res.status(400).render("main/404");
-    }
+   if(req.cookies.userId ){
+        try {
+            const currentUser = await db.user.findOne({where: {id: res.locals.user.id}})
+            const categories = await currentUser.getCategories()
+           res.render("categories/index", { categories });
+       } catch (error) {
+           console.log(error);
+           res.status(400).render("main/404");
+       }
+   } else res.redirect('/users/login')
 });
 
 // POST new category to database
@@ -76,7 +79,7 @@ router.get('/:id', async (req,res)=>{
            }
        })
        const categoriesAlbums = await foundCategory.getAlbums()
-       res.render('categories/show.ejs', {categoriesAlbums})
+       res.render('categories/show.ejs', {categoriesAlbums, foundCategory})
     } catch (err){
         console.log(err)
     }
