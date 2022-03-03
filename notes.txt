@@ -10,9 +10,9 @@ sequelize model:create --name category --attributes name:string,description:text
 sequelize model:create --name comment --attributes content:text,userId:integer,albumId:integer,commentId:integer
 sequelize db:migrate
 
-make post routes
-delete route
-put route
+
+put route to update category names/descriptions
+connecting categories with albums
 auth stuff
-]
+
 

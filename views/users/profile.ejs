@@ -7,10 +7,21 @@
         <form action="/albums/<%=fave.id%>?_method=DELETE" method="POST">
             <input type="submit" class="btn btn-danger" value="Remove From Collection" />
         </form>
-        <form method="GET" action="/categories">
-            <input type="text" id="categorize" placeholder="add to category" name="">
-            <input type="submit">
+        <form method="post" action="/categories/albums">
+            <label for="categories">Add to category:</label>
+            <select name="albumId" id="categories">
+                <option value=""></option>
+
+
+            </select>
+                
+
+            <input hidden type="text" id="categorize" value="<%=fave.id%>" name="albumId">
+
+            <button type="submit">Add To Category...</button>
         </form>
         <a href="/albums/<%=fave.id %> "><button>Album Details</button></a>
     </div>
 <% }) %>
+
+<!-- make drop down for all categories basesd off of get route that gets all categories of the user -->
