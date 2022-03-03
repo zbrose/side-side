@@ -14,12 +14,16 @@ router.get('/profile', async (req,res)=>{
         }
     })
     const faves = await currentUser.getAlbums()
-    res.render('users/profile.ejs',{faves})
+    const categories = await currentUser.getCategories()
+    res.render('users/profile.ejs',{faves,categories})
 })
+
+
 
 router.get('/new',(req,res)=>{
     res.render('users/new.ejs')
 })
+
 
 router.post('/', async (req,res)=>{
    const [newUser, created] = await db.user.findOrCreate({

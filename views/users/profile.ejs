@@ -2,26 +2,27 @@
 
 <% faves.forEach(fave => { %>
     <div>
-       <h3><%= fave.title %> by <%= fave.artist %> </h3> 
+        <h3><%= fave.title %> by <%= fave.artist %> </h3> 
         <img src=" <%= fave.img_url %>" width="250" alt=" <%=fave.title %> image">
+
         <form action="/albums/<%=fave.id%>?_method=DELETE" method="POST">
             <input type="submit" class="btn btn-danger" value="Remove From Collection" />
         </form>
+        
         <form method="post" action="/categories/albums">
-            <label for="categories">Add to category:</label>
-            <select name="albumId" id="categories">
-                <option value=""></option>
-
-
+           
+            <input hidden type="text" id="categorize" value="<%=fave.id%>" name="category">
+            <button type="submit">Add To Category: </button> 
+            <!-- <label for="categories">Add to category:</label> -->
+            <select name="category" id="categories">
+                <% categories.forEach(category => { %>
+                        <option value="<%=category.id%>"><%=category.name %> </option>
+                <% }) %>
             </select>
-                
 
-            <input hidden type="text" id="categorize" value="<%=fave.id%>" name="albumId">
-
-            <button type="submit">Add To Category...</button>
         </form>
-        <a href="/albums/<%=fave.id %> "><button>Album Details</button></a>
+        <!-- <a href="/albums/<%=//fave.id %> "><button>Album Details</button></a> -->
     </div>
 <% }) %>
 
-<!-- make drop down for all categories basesd off of get route that gets all categories of the user -->
+<!-- make drop down for all categories based off of get route that gets all categories of the user -->
