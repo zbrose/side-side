@@ -1,17 +1,15 @@
 
 <div class="container">
-    <ul>
-        <% releases.forEach((release)=> { %>
-        <li>
+    
+    <% releases.forEach((release)=> { %>
+        <div>
             <img src="<%=release.thumb %>" alt="album cover image">
             <%=release.title %> 
             <%=release.artist %> 
            ( <%=release.year %> )
             <%=release.id %> 
             <a href="/albums/<%=release.id %> "><button>Album Details</button></a>
-        </li>
-        <br>
-        <% }) %>
-
-    </ul>
+        </div>
+        
+     <% }) %>
 </div>

@@ -31,6 +31,8 @@ app.use(async (req,res,next)=>{
 app.use('/users',require('./controllers/users.js'))
 app.use('/artists',require('./controllers/artists.js'))
 app.use('/albums',require('./controllers/albums.js'))
+app.use('/categories',require('./controllers/categories.js'))
+
 
 //ROUTES
 app.get('/',(req,res)=>{

@@ -1,12 +1,10 @@
 <h2><%=user.email %>'s Collection</h2>
-<a href="/">All Albums</a>
-<a href="/albums/categories">Categories</a>
 
 <% faves.forEach(fave => { %>
     <div>
        <h3><%= fave.title %> by <%= fave.artist %> </h3> 
         <img src=" <%= fave.img_url %>" width="250" alt=" <%=fave.title %> image">
-        <form action="/user/profile%>?_method=DELETE" method="POST">
+        <form action="/albums/<%=fave.id%>?_method=DELETE" method="POST">
             <input type="submit" class="btn btn-danger" value="Remove From Collection" />
         </form>
         <form method="GET" action="/categories">

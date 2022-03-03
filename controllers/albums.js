@@ -15,6 +15,19 @@ router.get('/:id',async (req,res)=>{
     }
 })
 
+router.delete('/:albumId',async (req,res)=>{
+    try{
+        const foundAlbum = await db.album.findOne({
+            where: {
+                id: req.params.albumId
+            }
+        })
+         await foundAlbum.destroy()
+        res.redirect('/users/profile')
+    }catch (err){
+        console.log(err)
+    }
+})
 
 
 module.exports = router

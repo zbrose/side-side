@@ -88,18 +88,6 @@ router.get('/logout',(req,res)=>{
     res.redirect('/')
 })
 
-router.delete('/profile',async (req,res)=>{
-    try{
-        const userDelete = await db.user.findOne({
-            where: {
-                id: res.locals.user.id
-            }
-        })
-        await userDelete.removeAlbum()
-        res.redirect('users/profile')
-    }catch (err){
-        console.log(err)
-    }
-})
+
 
 module.exports = router 
