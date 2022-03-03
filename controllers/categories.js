@@ -7,6 +7,7 @@ const { RowDescriptionMessage } = require('pg-protocol/dist/messages')
 require('dotenv').config()
 
 
+// GET list of all categories
 router.get("/", async (req, res) => {
     try {
         const categories = await db.category.findAll();
@@ -17,6 +18,7 @@ router.get("/", async (req, res) => {
     }
 });
 
+// POST new category to database
 router.post('/', async (req,res)=>{
     try{    
         const [newCategory, newCategoryCreated] = await db.category.findOrCreate({
@@ -32,22 +34,31 @@ router.post('/', async (req,res)=>{
         console.log(err)
     }
 })
-router.post('/albums', async (req,res)=>{
+
+//POST Album to a category
+router.post('/albums', async (req,res)=>{ 
+    console.log(req.body.category.id,'logged')
     try{    
-        const [newAlbum, newAlbumCreated] = await db.album.findOrCreate({
+        const category = JSON.parse(req.body.category)
+        const newAlbum = await db.album.findOne({
             where: {
-                albumId: req.body.albumId
+                id: req.body.albumId
             }
         })
-        console.log(newAlbum)
+        const newCategory = await db.category.findOne({
+            where: {
+                id: category.id
+            }
+        })
+        await newCategory.addAlbum(newAlbum)
+
         res.redirect('/categories')
     }catch (err){
         console.log(err)
     }
 })
 
-
-
+//GET new category form
 router.get("/new", (req, res) => {
     if (req.cookies.userId) {
         res.render("categories/new", { user: res.locals.user });
@@ -56,10 +67,22 @@ router.get("/new", (req, res) => {
     }
 });
 
-router.get('/:id', (req,res)=>{ // display records assigned with this category
-    res.render('categories/show.ejs')
+//GET list of albums in selected category
+router.get('/:id', async (req,res)=>{ 
+   try{
+       const foundCategory = await db.category.findOne({
+           where: {
+               id: req.params.id
+           }
+       })
+       const categoriesAlbums = await foundCategory.getAlbums()
+       res.render('categories/show.ejs', {categoriesAlbums})
+    } catch (err){
+        console.log(err)
+    }
 })
 
+//PUT update category name and description
 router.put('/:id', async (req,res)=>{
     try {
         const category = await db.category.findOne({
@@ -78,6 +101,7 @@ router.put('/:id', async (req,res)=>{
     }
 })
 
+// GET edit form for categories
 router.get('/edit/:id', async (req,res)=>{
     try {
         const category = await db.category.findOne({
@@ -92,8 +116,7 @@ router.get('/edit/:id', async (req,res)=>{
     }
 })
 
-
-
+// DELETE category
 router.delete('/:categoryId',async (req,res)=>{
     try{
         const foundCategory = await db.category.findOne({
@@ -107,9 +130,5 @@ router.delete('/:categoryId',async (req,res)=>{
         console.log(err)
     }
 })
-
-
-
-
 
 module.exports = router

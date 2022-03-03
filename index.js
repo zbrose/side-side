@@ -29,7 +29,6 @@ app.use(async (req,res,next)=>{
 
 //CONTROLLERS
 app.use('/users',require('./controllers/users.js'))
-app.use('/artists',require('./controllers/artists.js'))
 app.use('/albums',require('./controllers/albums.js'))
 app.use('/categories',require('./controllers/categories.js'))
 
@@ -47,6 +46,23 @@ app.get('/results',(req,res)=>{
         const filteredArtists = artistMatches.filter(result=> {return result.type==='artist'})
         res.render('albums/index.ejs',{artists: filteredArtists})  
         // res.send(response.data.results)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
+app.get('/results/:id',(req,res)=>{
+    const url = `https://api.discogs.com/artists/${req.params.id}/releases?token=${process.env.DISCOGS_TOKEN}`
+     axios.get(url)
+    .then(response=>{
+        const allReleases = response.data.releases
+        const filteredReleases = allReleases.filter(release=>{return release.type==='master'})
+        filteredReleases.sort((a,b)=>{
+          return  b.stats.community.in_collection - a.stats.community.in_collection
+        })
+        res.render('albums/show.ejs',{releases: filteredReleases})
+        // res.send(filteredReleases)
     })
     .catch(err=>{
         console.log(err)

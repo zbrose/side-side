@@ -1,13 +1,13 @@
-# Unit 2 Project - Increditable: a virtual record collection 
+# Unit 2 Project - Side-Side: a virtual record collection 
 
-Increditable is a music database and organization app in which a user can get information on recordings by artist name, record title, or song title using the Discogs Api. Users may view an albums information such as credits and track listing, as well as view/create comments and ratings made by other users.  Users are also able to bookmark and categorize records, adding them to a want-list or their growing collection.
+Side-Side is a music database and organization app in which a user can get information on recordings by artist name, record title, or song title using the Discogs Api. Users may view an albums information such as credits and track listing. Users are also able to bookmark and categorize records, adding them to a want-list or their growing collection.
 
 ## Deployed Project
 (link here)
 
 ## Technologies
 - Postgres
-- Express
+- Express, Ejs
 - Node.js
 - CSS
 
@@ -41,14 +41,14 @@ Increditable is a music database and organization app in which a user can get in
 
 ## MVP Goals
 - Retrieve information from the Discogs Api and display it in seperate views
-- Be able to search for and album by artist OR song OR album
-- Let users view and create comments on albums
-- Create a favorites page for storing bookmarked albums
-- Be able to create categories in order to sort bookmarks
-- Give users option to delete records from collection
+- Be able to search for database an artist
+- Be able to see artists albums and link to album info
+- Create a collection page for storing bookmarked albums
+- Be able to create categories in order to sort albums in collection
+- Give users option to delete records from collection and edit categories
 
 ## Stretch Goals
-- links to actual music?
+- links to actual music
 - ability to rearrange record collection
 - be able to bookmark artists and songs 
 - display album story and or long form reviews

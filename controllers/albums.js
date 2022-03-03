@@ -6,6 +6,7 @@ const axios = require('axios')
 require('dotenv').config()
 
 
+//GET album details
 router.get('/:id',async (req,res)=>{
     try{
         const response = await axios.get(`https://api.discogs.com/masters/${req.params.id}?token=${process.env.DISCOGS_TOKEN}`)
@@ -15,6 +16,7 @@ router.get('/:id',async (req,res)=>{
     }
 })
 
+// DELETE album from collection
 router.delete('/:albumId',async (req,res)=>{
     try{
         const foundAlbum = await db.album.findOne({

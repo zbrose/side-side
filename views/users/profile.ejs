@@ -10,18 +10,16 @@
         </form>
         
         <form method="post" action="/categories/albums">
-            <select name="category" id="categories">
+            <select name="category" id="category">
                 <% categories.forEach(category => { %>
-                        <option value="<%=category.id%>"><%=category.name %> </option>
+                        <option value='{"id": "<%=category.id%>", "name":"<%=category.name%>"}'><%=category.name%> </option>
                 <% }) %>
             </select>
+            <input hidden type="text" id="albumId" value="<%=fave.id%>" name="albumId">
             <button type="submit">Add To Category</button> 
-           
-            <!-- <input hidden type="text" id="categorize" value="<%=//fave.id%>" name="albumId"> -->
-            <!-- <label for="categories">Add to category:</label> -->
-
         </form>
-        <!-- <a href="/albums/<%=//fave.id %> "><button>Album Details</button></a> -->
-    </div>
+          
+          <!-- <a href="/albums/<%=//fave.id %> "><button>Album Details</button></a> -->
+        </div>
 <% }) %>
 

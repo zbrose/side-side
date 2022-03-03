@@ -7,6 +7,7 @@ const cryptojs = require('crypto-js')
 require('dotenv').config()
 
 
+// GET profile page
 router.get('/profile', async (req,res)=>{
     const currentUser = await db.user.findOne({
         where: {
@@ -19,12 +20,12 @@ router.get('/profile', async (req,res)=>{
 })
 
 
-
+//GET form to create new user
 router.get('/new',(req,res)=>{
     res.render('users/new.ejs')
 })
 
-
+//POST new user to database
 router.post('/', async (req,res)=>{
    const [newUser, created] = await db.user.findOrCreate({
         where: {email: req.body.email}
@@ -47,6 +48,7 @@ router.post('/', async (req,res)=>{
     }
 })
 
+// POST album to databae
 router.post('/:id/album', async (req,res)=>{
     try {
         const user = await db.user.findByPk(req.params.id)
