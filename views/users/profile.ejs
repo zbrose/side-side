@@ -2,7 +2,7 @@
 
 <% faves.forEach(fave => { %>
     <div>
-        <h3><%= fave.title %> by <%= fave.artist %> </h3> 
+        <h3><%= fave.title %> by <a href="/artists/<%= fave.artist_id %> "><%= fave.artist %> </a></h3> 
         <img src=" <%= fave.img_url %>" width="250" alt=" <%=fave.title %> image">
 
         <form action="/albums/<%=fave.id%>?_method=DELETE" method="POST">
@@ -19,7 +19,7 @@
             <button type="submit">Add To Category</button> 
         </form>
           
-          <a href="/artists/<%=fave.artist_id %> "><button>Album Details</button></a>
+          <a href="/albums/<%=fave.album_id%> "><button>Album Details</button></a>
         </div>
 <% }) %>
 

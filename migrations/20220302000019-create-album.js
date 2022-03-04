@@ -20,6 +20,9 @@ module.exports = {
       artist_id: {
         type: Sequelize.INTEGER
       },
+      album_id: {
+        type: Sequelize.INTEGER
+      },
       userId: {
         type: Sequelize.INTEGER
       },

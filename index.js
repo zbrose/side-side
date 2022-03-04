@@ -64,9 +64,7 @@ app.get('/results/:id',(req,res)=>{
         filteredReleases.sort((a,b)=>{
           return  b.stats.community.in_collection - a.stats.community.in_collection
         })
-        const currentUser = await db.user.findOne({where: {id: res.locals.user.id}})
-        const albums = await currentUser.getAlbums()
-        res.render('albums/show.ejs',{releases: filteredReleases, })
+        res.render('albums/show.ejs',{releases: filteredReleases})
         // res.send(filteredReleases)
     })
     .catch(err=>{

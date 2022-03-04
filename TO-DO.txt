@@ -12,17 +12,18 @@ sequelize db:migrate
 
 
 
-displaying category names under albums 
-displaying more info on albums inside user profile
-displaying album details from the collection page
-display how many album are in each category 
-display artist details from the artist page
-Create a user name field and table for the model
-Get to artist info page from collection page
 
 
-display album credits on album details view 
-    - save the artist id in the table as well
+TO DO
+- Create a user name field and table for the model
+- fix edge case of group not having groups
+- hide 'add to collection button' if in collection ond details page
 
-update ERDs 
-Style
+CATEGORIES
+- make 'add to category' button go to create category if no categories exist
+- display how many album are in each category 
+- displaying category names under albums 
+
+Misc
+- update ERDs 
+- Style
