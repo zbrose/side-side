@@ -15,6 +15,7 @@ app.set('view engine', 'ejs') // set the view engine to ejs
 app.use(ejsLayouts) // tell express we want to use layouts
 app.use(cookieParser()) //give us acces to req.cookies
 app.use(express.urlencoded({extended:false})) //body parser to make req.body work
+app.use("/public", express.static("public"))
 
 //CUSTOM LOGIN MIDDLEWARE
 app.use(async (req,res,next)=>{
@@ -31,6 +32,8 @@ app.use(async (req,res,next)=>{
 app.use('/users',require('./controllers/users.js'))
 app.use('/albums',require('./controllers/albums.js'))
 app.use('/categories',require('./controllers/categories.js'))
+app.use('/artists',require('./controllers/artists.js'))
+
 
 
 //ROUTES
@@ -44,7 +47,7 @@ app.get('/results',(req,res)=>{
     .then(response=>{
         const artistMatches = response.data.results
         const filteredArtists = artistMatches.filter(result=> {return result.type==='artist'})
-        res.render('albums/index.ejs',{artists: filteredArtists})  
+        res.render('artists/index.ejs',{artists: filteredArtists})  
         // res.send(response.data.results)
     })
     .catch(err=>{
@@ -68,6 +71,8 @@ app.get('/results/:id',(req,res)=>{
         console.log(err)
     })
 })
+
+
 
 
 const PORT = process.env.PORT || 8000

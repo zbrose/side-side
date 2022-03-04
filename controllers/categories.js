@@ -2,8 +2,6 @@ const express = require('express')
 const db = require('../models')
 const user = require('../models/user')
 const router = express.Router()
-const axios = require('axios')
-const { RowDescriptionMessage } = require('pg-protocol/dist/messages')
 require('dotenv').config()
 
 

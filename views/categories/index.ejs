@@ -5,7 +5,7 @@
 </div>
 
 <% categories.forEach(category => { %>
-           <a href="/categories/<%=category.id%>"> <h3><%= category.name %> </h3> </a>
+            <a href="/categories/<%=category.id%>"> <h3><%= category.name %> </h3> </a>
             <p><%= category.description %> </p>
             <a href="/categories/edit/<%=category.id%>"><button>Edit Category</button></a>
             <form action="/categories/<%=category.id%>?_method=DELETE" method="POST">

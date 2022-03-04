@@ -16,3 +16,4 @@ displaying category names under albums
 displaying more info on albums inside user profile
 displaying album details from the collection page
 display how many album are in each category 
+display artist details from the artist page

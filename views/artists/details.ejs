@@ -1,0 +1,13 @@
+<h2>Artist Profile</h2>
+
+<h3><%= artist.name %> </h3>
+
+
+
+<% for( let i = 0; i < artist['images'].length; i++ ) { %>
+    <img src="<%=artist['images'][i].uri%>" width=100 alt="artist image"> 
+<% } %>
+
+<p><%= artist.profile %> </p>
+
+<a href="/results/<%=artist.id%>"><button>See Artist Albums</button></a>
