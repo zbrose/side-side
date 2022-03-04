@@ -58,7 +58,7 @@ router.post('/:id/album', async (req,res)=>{
     try {
         const user = await db.user.findByPk(req.params.id)
         await user.createAlbum(req.body)
-        console.log(req.body,req.params.id,'added to collection')
+        // console.log(req.body,req.params.id,'added to collection')
         res.redirect('/users/profile')
     }catch(err){
         console.log(err)
