@@ -48,6 +48,7 @@ Side-Side is a music database and organization app in which a user can get infor
 - Give users option to delete records from collection and edit categories
 
 ## Stretch Goals
+- add comment/social media functionality 
 - links to actual music
 - ability to rearrange record collection
 - be able to bookmark artists and songs 

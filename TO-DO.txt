@@ -16,9 +16,9 @@ sequelize db:migrate
 
 TO DO
 - Create a user name field and table for the model
-- fix edge case of group not having groups
 - hide 'add to collection button' if in collection ond details page
 - stop from adding duplicates to collection
+- catch error when nothing is searched etc
 
 CATEGORIES
 - create a 'remove album from category' button
@@ -27,5 +27,6 @@ CATEGORIES
 - displaying category names under albums 
 
 Misc
+- update routing chart
 - update ERDs 
 - Style
