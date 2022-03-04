@@ -1,16 +1,10 @@
 <ul>
     
     <% artists.forEach(artist => { %>
-        
-        <div>
-            <h3><a href="/artists/<%=artist.id%>"><%= artist.title %></a> </h3>
-        </div>
-       
-        <img src="<%=artist.cover_image %>" width="300px" alt="cover image">
-        
-        <div>
-             <a href="/results/<%=artist.id%>"><button>See All Albums</button></a>
-        </div>
+        <h4><%= artist.title %> </h4>
+        <div><img src="<%=artist.cover_image %>" width="300px" alt="cover image"></div> 
+        <a href="/results/<%=artist.id%>"><button type="button" class="btn btn-success">See Albums</button></a>
+        <a href="/artists/<%=artist.id%>"><button type="button" class="btn btn-success">See Profile</button></a>
         
     <% })%>
 

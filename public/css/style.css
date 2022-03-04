@@ -1,8 +1,7 @@
-body{
-    background-color: aqua;
-}
 
 .container {
-    background-color: aqua;
-    display: inline-block;
-}
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+} 
+
