@@ -17,3 +17,12 @@ displaying more info on albums inside user profile
 displaying album details from the collection page
 display how many album are in each category 
 display artist details from the artist page
+Create a user name field and table for the model
+Get to artist info page from collection page
+
+
+display album credits on album details view 
+    - save the artist id in the table as well
+
+update ERDs 
+Style

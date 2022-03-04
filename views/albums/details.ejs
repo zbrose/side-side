@@ -15,6 +15,7 @@
         <label for="bookmark"></label>
         <input hidden type="text" name="title" value="<%= results.title %>">
         <input hidden type="text" name="artist" value="<%= results.artists[0].name %>">
+        <input hidden type="text" name="artistId" value="<%= results.artists.id %>">
         <input hidden value=" <%= results.images[0].uri%>" name="img_url">
         
         <input type="submit" value="Add to Collection">
