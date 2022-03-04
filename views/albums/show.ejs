@@ -3,7 +3,7 @@
     
     <% releases.forEach((release)=> { %>
         <div>
-            <h3><a href="/albums/<%=release.id %> "><%=release.title %></a> by <a href="/artists/<%=release.artist_id %> "><%=release.artist %></a> (<%=release.year %>)</h3> 
+            <h3><a href="/albums/<%=release.id %> "><%=release.title %></a> by <%=release.artist %> (<%=release.year %>)</h3> 
             <img src="<%=release.thumb %>" alt="album cover image">
             <div>
                 <a href="/albums/<%=release.id %> "><button>Album Details</button></a>

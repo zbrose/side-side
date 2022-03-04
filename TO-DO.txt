@@ -18,8 +18,10 @@ TO DO
 - Create a user name field and table for the model
 - fix edge case of group not having groups
 - hide 'add to collection button' if in collection ond details page
+- stop from adding duplicates to collection
 
 CATEGORIES
+- create a 'remove album from category' button
 - make 'add to category' button go to create category if no categories exist
 - display how many album are in each category 
 - displaying category names under albums 
