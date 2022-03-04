@@ -38,7 +38,6 @@ router.post('/', async (req,res)=>{
 
 //POST Album to a category
 router.post('/albums', async (req,res)=>{ 
-    console.log(req.body.category.id,'logged')
     try{    
         const category = JSON.parse(req.body.category)
         const newAlbum = await db.album.findOne({
@@ -56,6 +55,7 @@ router.post('/albums', async (req,res)=>{
         res.redirect('/categories')
     }catch (err){
         console.log(err)
+        res.redirect('/categories/new')
     }
 })
 

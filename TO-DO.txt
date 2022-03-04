@@ -16,7 +16,7 @@ sequelize db:migrate
 
 TO DO
 - Create a user name field and table for the model
-- hide 'add to collection button' if in collection and details page
+- hide 'add to collection button' form user if in collection and details page
 - stop from adding duplicates to collection
 - catch error when nothing is searched etc
 
