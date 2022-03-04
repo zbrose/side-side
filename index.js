@@ -76,6 +76,6 @@ app.get('/results/:id',(req,res)=>{
 
 
 const PORT = process.env.PORT || 8000
-app.listen(8000,()=>{
+app.listen(PORT,()=>{
     console.log('listening on 8000')
 })
