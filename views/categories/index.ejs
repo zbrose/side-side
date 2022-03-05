@@ -1,15 +1,23 @@
-<h2>All Categories</h2>
 
-<div>
-    <a href="/categories/new"><button>Create New Category</button></a>
+
+<h1 class="center">All Categories</h1>
+
+<div class="center">
+    <a href="/categories/new"><button type="button" class="btn btn-success">Create New Category</button></a>
 </div>
 
+<div class="flex-box">
 <% categories.forEach(category => { %>
+    <div class="album-container">
             <a href="/categories/<%=category.id%>"> <h3><%= category.name %> </h3> </a>
             <p><%= category.description %> </p>
-            <a href="/categories/edit/<%=category.id%>"><button>Edit Category</button></a>
+            
+            <a href="/categories/edit/<%=category.id%>"><button type="button" class="btn btn-primary">Edit Category</button></a>
+            
             <form action="/categories/<%=category.id%>?_method=DELETE" method="POST">
-                <input type="submit" class="btn btn-danger" value="Delete Category" />
+                <!-- <input type="submit" class="btn btn-danger" value="Delete Category" /> -->
+                <button type="submit" class="btn btn-danger">Delete Category</button>
             </form>
+    </div>
 <% }) %>
-
+</div>

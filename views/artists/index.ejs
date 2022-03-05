@@ -1,11 +1,13 @@
-<ul>
-    
-    <% artists.forEach(artist => { %>
+<h1 class="center">Results for: <%=artists[0].title %> </h1>
+<div class="flex-box">
+<% artists.forEach(artist => { %>
+    <div class="artist-container">
         <h4><%= artist.title %> </h4>
-        <div><img src="<%=artist.cover_image %>" width="300px" alt="cover image"></div> 
-        <a href="/results/<%=artist.id%>"><button type="button" class="btn btn-success">See Albums</button></a>
-        <a href="/artists/<%=artist.id%>"><button type="button" class="btn btn-success">See Profile</button></a>
-        
-    <% })%>
-
-</ul>
+        <div><img src="<%=artist.cover_image %>" width="300px" height="300px" alt="cover image"></div> 
+        <div>
+            <a href="/results/<%=artist.id%>"><button type="button" class="btn btn-primary">See Albums</button></a>
+            <a href="/artists/<%=artist.id%>"><button type="button" class="btn btn-primary">See Profile</button></a>
+        </div>
+    </div>
+<% })%>
+</div>

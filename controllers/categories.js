@@ -11,7 +11,8 @@ router.get("/", async (req, res) => {
         try {
             const currentUser = await db.user.findOne({where: {id: res.locals.user.id}})
             const categories = await currentUser.getCategories()
-           res.render("categories/index", { categories });
+            // const albums = await currentUser.getAlbums()
+           res.render("categories/index", {categories});
        } catch (error) {
            console.log(error);
            res.status(400).render("main/404");
@@ -117,6 +118,7 @@ router.get('/edit/:id', async (req,res)=>{
     }
 })
 
+
 // DELETE category
 router.delete('/:categoryId',async (req,res)=>{
     try{
@@ -125,8 +127,21 @@ router.delete('/:categoryId',async (req,res)=>{
                 id: req.params.categoryId
             }
         })
-         await foundCategory.destroy()
+        await foundCategory.destroy()
         res.redirect('/categories')
+    }catch (err){
+        console.log(err)
+    }
+})
+//DELETE album from category
+router.delete('/:id', async (req,res)=>{
+    try {
+        const foundAlbum = await db.album.findOne({
+            where: {
+                id: req.body.albumId
+            }
+        })
+        await foundAlbum.destroy()
     }catch (err){
         console.log(err)
     }

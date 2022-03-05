@@ -1,13 +1,16 @@
+<h1 class="center"><%= releases[0].artist %>'s Albums </h1>
 
-<div class="container">
+<div class="flex-box">
     
     <% releases.forEach((release)=> { %>
-        <div>
-            <p><%=release.title %>(<%=release.year %>) </p>
-            <img src="<%=release.thumb %>" width=200 alt="album cover image">
+        <div class="album-container">
+        
+            <p class="album-name"><%=release.title %>(<%=release.year %>) </p>
+            <img src="<%=release.thumb %>" width=200 height=200 alt="album cover image">
             <div>
-                <a href="/albums/<%=release.id %> "><button type="button" class="btn btn-success">See Details</button></a>
+                <a href="/albums/<%=release.id %> "><button type="button" class="btn btn-primary">See Details</button></a>
             </div>
+            
         </div>
         
      <% }) %>

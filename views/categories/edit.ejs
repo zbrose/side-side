@@ -1,5 +1,6 @@
-<h1><%= category.name %></h1>
+<h1 class="center"><%= category.name %></h1>
 
+<div class="container">
 <form action="/categories/<%=category.id%>/?_method=PUT" method="POST">
     <div class="form-group">
         <label for="name">Name</label>
@@ -26,3 +27,4 @@
     </div>
     <input type="submit" class="btn btn-primary" />
 </form>
+</div>

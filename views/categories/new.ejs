@@ -1,5 +1,8 @@
-<h1>Create a new category for your collection</h1>
 
+
+<h1 class="center">Create a new category</h1>
+
+<div class="container">
 <form action="/categories" method="POST">
   <div class="form-group">
     <label for="name">Name</label>
@@ -8,7 +11,7 @@
 
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea type="text" class="form-control" id="description" name="description" required></textarea>
+    <textarea type="text" class="form-control" id="description" name="description"  required></textarea>
   </div>
   
 
@@ -16,3 +19,5 @@
   <input type="hidden" name="userId" value="<%=user.id%> ">
   <input type="submit" class="btn btn-primary">
 </form>
+
+</div>

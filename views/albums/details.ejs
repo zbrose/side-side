@@ -1,3 +1,4 @@
+<div class="album-details">
 <h2><%= results.title %> by <%= results.artists[0].name  %></h2>
 
 <img src=" <%= results.images[0].uri%>" width="500px" alt="album cover image">
@@ -10,7 +11,7 @@
     <%}) %> 
 </ul>
 
-<p><%= results.notes %> </p>
+<p class="center"><%= results.notes %> </p>
 
 <% if (user) { %>
     <form action="/users/<%= user.id %>/album" method="post">
@@ -21,10 +22,11 @@
         <input hidden type="text" name="album_id" value="<%= results.id %>">
         <input hidden name="img_url" value="<%= results.images[0].uri%>" >
         
-        <input type="submit" value="Add to Collection">
+        <!-- <input type="submit" value="Add to Collection"> -->
+        <button type="submit" value="Add to Collection" class="btn btn-success">Add to Collection</button>
     </form>
 <% } %> 
-
+</div>
 <!-- <form method="post" action="/">
     <label for="comment"></label>
     <input type="text" id="comment" placeholder="make a comment" name="">

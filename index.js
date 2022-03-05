@@ -38,8 +38,15 @@ app.use('/artists',require('./controllers/artists.js'))
 
 
 //ROUTES
-app.get('/',(req,res)=>{
-    res.render('home.ejs')
+app.get('/',async (req,res)=>{
+    try {
+        
+        res.render('home.ejs')
+    }catch (err){
+        console.log(err)
+
+    }
+
 })
 
 app.get('/results',(req,res)=>{
