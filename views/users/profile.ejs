@@ -3,20 +3,21 @@
 <div class="flex-box">
     <% faves.forEach(fave => { %>
         <div class="collection-container">
-                <p><%= fave.title %> by <a href="/artists/<%= fave.artist_id %> "><%= fave.artist %> </a><p> 
-                <a href="/albums/<%=fave.album_id%> "><img src=" <%= fave.img_url %>" width="250" alt=" <%=fave.title %> image"></a>
+            <a href="/albums/<%=fave.album_id%> "><p><%= fave.title %></a> by <a href="/artists/<%= fave.artist_id %> "><%= fave.artist %> </a><p> 
+            <a href="/albums/<%=fave.album_id%> "><img src=" <%= fave.img_url %>" width="250" alt=" <%=fave.title %> image"></a>
 
             <form method="post" action="/categories/albums">
-                    <select name="category" id="category">
+                <div class="form-group">
+                    <select class="form-select" id="category" name="category">
                         <% categories.forEach(category => { %>
                             <option value='{"id": "<%=category.id%>", "name":"<%=category.name%>"}'><%=category.name%> </option>
-                            <% }) %>
-                        </select>
-                        <input hidden type="text" id="albumId" value="<%=fave.id%>" name="albumId">
-                        
-                        <button type="submit" class="btn btn-primary">Add to Category</button>
+                        <% }) %>
+                    </select>
+                    <input hidden type="text" id="albumId" value="<%=fave.id%>" name="albumId">
+                    <button type="submit" class="btn btn-primary">Add to Category</button>
+                </div>
             </form>
-                    
+           
             <form action="/albums/<%=fave.id%>?_method=DELETE" method="POST">
                 <input type="submit" class="btn btn-danger" value="Remove From Collection" />
             </form>

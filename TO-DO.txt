@@ -18,13 +18,10 @@ TO DO
 - catch error when nothing is searched etc
 - do i need a join table for users saving albums????
 - apppppp not saving albums if its a new usssser - because using .addAlbum was changed from .createAlbum on that route.  why??
-
-CATEGORIES
+- hide add to collectino button if you have record in collection.  
+- figure out why the record image isnt showing on some pages
 - create a 'remove album from category' button
 - display how many album are in each category 
 - displaying category names under albums that they belong to
-
-Misc
 - update routing chart
-- update ERDs 
-- Style
+

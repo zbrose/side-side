@@ -12,13 +12,15 @@ Side-Side is a music database and organization app in which a user can get infor
 - CSS
 
 ## ERDS
-![ERD image](./Images/ERD.png)
+![ERD image](./Images/ERD_v2.png)
 
 ## RESTful Routing Chart
 ![restful routing chart](./Images/restfulchart.png)
 
 ## Wireframes
-/
+
+
+<!-- /
 ![wireframe 1](./Images/wireframe-1.png/)
 /login
 ![wireframe 2](./Images/wireframe-2.png/)
@@ -31,7 +33,7 @@ Side-Side is a music database and organization app in which a user can get infor
 /results
 ![wireframe 6](./Images/wireframe-6.png/)
 /results/:id
-![wireframe 7](./Images/wireframe-7.png/)
+![wireframe 7](./Images/wireframe-7.png/) -->
 
 ## User Stories
 1. I want to be able to see a list of albums based on my search of album title, song title, or artist.
