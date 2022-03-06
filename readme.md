@@ -22,9 +22,26 @@ Side-Side is a music database and organization app in which a user can get infor
 | GET  | /           | Read   | display home page with description of app |
 | GET  | /users/login          | Read   | display login form |
 | GET  | /users/new         | Read   | display sign up form |
-| GET  | /users/new          | Create | Create new user from form |
+| POST  | /users/new          | Create | Create new user from form |
 | GET  | /users/profile        | Read  | display user profile/collection |
 | GET  | /users/profile        | Read  | display user profile/collection |
+| GET  | /artists/:id       | Read  | display searched artist results|
+| GET  | /albums/:id       | Read  | display artists albums |
+| DELETE | /albums/:albumid       | Delete  | delete album from user collection |
+| GET  | /categories      | Read | display all user categories |
+| POST  | /categories      | Create | display form to create new album category |
+| POST | /categories/albums      | Create | add album to a selected category|
+| GET| /categories/new    | Read | display form to create new category|
+| GET| /categories/:id    | Read | display category and associated albums|
+| GET| /categories/edit:id  | Read | display from to edit category|
+| PUT | /categories/:id    | Update | updates category name and description in database|
+| DELETE | /categories/:categoryId    | Delete | Delete category |
+
+
+
+
+
+
 
 
 

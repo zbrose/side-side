@@ -133,18 +133,18 @@ router.delete('/:categoryId',async (req,res)=>{
         console.log(err)
     }
 })
-//DELETE album from category
-router.delete('/:id', async (req,res)=>{
-    try {
-        const foundAlbum = await db.album.findOne({
-            where: {
-                id: req.body.albumId
-            }
-        })
-        await foundAlbum.destroy()
-    }catch (err){
-        console.log(err)
-    }
-})
+// //DELETE album from category
+// router.delete('/:id', async (req,res)=>{
+//     try {
+//         const foundAlbum = await db.album.findOne({
+//             where: {
+//                 id: req.body.albumId
+//             }
+//         })
+//         await foundAlbum.destroy()
+//     }catch (err){
+//         console.log(err)
+//     }
+// })
 
 module.exports = router
