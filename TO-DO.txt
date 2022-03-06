@@ -23,5 +23,7 @@ TO DO
 - create a 'remove album from category' button
 - display how many album are in each category 
 - displaying category names under albums that they belong to
+
+
 - update routing chart
 

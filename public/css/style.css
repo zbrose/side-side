@@ -1,12 +1,12 @@
-:root {
-    --gradient: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
-}
+
 
 .flex-box {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    max-width: 1500px;
+    margin:  auto;
 } 
 
 .album-container {
@@ -45,7 +45,6 @@
 .collection-container{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     width: 400px;
@@ -59,6 +58,7 @@
  .center {
     text-align: center;
     margin: 20px auto;
+    max-width: 1500px;
 }
 img{
     border-radius: 10px;
@@ -97,13 +97,6 @@ p{
 
 form {
     display: inline-block;
-}
-/* nav {
-    margin: 0 0 20px 0;
-}
-
-h4{
-    margin: 0 0 20px 0;
 }
 
 
