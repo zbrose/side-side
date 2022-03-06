@@ -19,7 +19,14 @@ Side-Side is a music database and organization app in which a user can get infor
 
 | VERB | URL pattern | Action | Description |
 |------|-------------|--------|-------------|
-| GET  | /           | Read   | display home page with description of app
+| GET  | /           | Read   | display home page with description of app |
+| GET  | /users/login          | Read   | display login form |
+| GET  | /users/new         | Read   | display sign up form |
+| GET  | /users/new          | Create | Create new user from form |
+| GET  | /users/profile        | Read  | display user profile/collection |
+| GET  | /users/profile        | Read  | display user profile/collection |
+
+
 
 ## Wireframes
 
