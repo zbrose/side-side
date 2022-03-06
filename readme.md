@@ -18,7 +18,7 @@ Side-Side is a music database and organization app in which a user can get infor
 ![restful routing chart](./Images/restfulchart.png)
 
 | VERB | URL pattern | Action | Description |
-|-------------------------------------------|
+|------|-------------|--------|-------------|
 | GET  | /           | Read   | display home page with description of app
 
 ## Wireframes
