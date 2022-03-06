@@ -8,7 +8,9 @@ sequelize model:create --name album --attributes title:string,artist:string,user
 sequelize model:create --name albums_categories --attributes albumId:integer,categoryId:integer
 sequelize model:create --name category --attributes name:string,description:text,userId:integer
 sequelize model:create --name comment --attributes content:text,userId:integer,albumId:integer,commentId:integer
+sequelize model:create --name users_albums --attributes userId:integer,albumId:integer
 sequelize db:migrate
+sequelize db:migrate:undo:all
 
 
 
@@ -16,14 +18,15 @@ sequelize db:migrate
 
 TO DO
 - catch error when nothing is searched etc
-- do i need a join table for users saving albums????
-- apppppp not saving albums if its a new usssser - because using .addAlbum was changed from .createAlbum on that route.  why??
 - hide add to collectino button if you have record in collection.  
-- figure out why the record image isnt showing on some pages
 - create a 'remove album from category' button
 - display how many album are in each category 
 - displaying category names under albums that they belong to
+- update wireframes
 
 
-- update routing chart
+
+- apppppp not saving albums if its a new usssser - because using .addAlbum was changed from .createAlbum on that route.  why??
+- figure out why the record image isnt showing on some pages
+
 

@@ -20,12 +20,13 @@ router.get('/:id',async (req,res)=>{
 // DELETE album from collection
 router.delete('/:albumId',async (req,res)=>{
     try{
+        const foundUser = await db.user.findByPk(res.locals.user.id)
         const foundAlbum = await db.album.findOne({
             where: {
                 id: req.params.albumId
             }
         })
-         await foundAlbum.destroy()
+         await foundUser.removeAlbum(foundAlbum)
         res.redirect('/users/profile')
     }catch (err){
         console.log(err)

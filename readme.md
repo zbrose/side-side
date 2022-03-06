@@ -37,16 +37,7 @@ Side-Side is a music database and organization app in which a user can get infor
 | PUT | /categories/:id    | Update | updates category name and description in database|
 | DELETE | /categories/:categoryId    | Delete | Delete category |
 
-
-
-
-
-
-
-
-
 ## Wireframes
-
 
 <!-- /
 ![wireframe 1](./Images/wireframe-1.png/)

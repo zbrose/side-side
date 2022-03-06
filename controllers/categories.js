@@ -109,7 +109,6 @@ router.get('/edit/:id', async (req,res)=>{
         const category = await db.category.findOne({
             where: {
                 id:req.params.id
-                
             },
         })
         res.render('categories/edit.ejs', {category: category})
@@ -120,14 +119,20 @@ router.get('/edit/:id', async (req,res)=>{
 
 
 // DELETE category
-router.delete('/:categoryId',async (req,res)=>{
+router.delete('/:categoryId', async (req,res)=>{
     try{
+
+      const foundAlbum = await db.album.findOne({
+            where: {
+                id: req.body.albumId
+            }
+        })
         const foundCategory = await db.category.findOne({
             where: {
                 id: req.params.categoryId
             }
         })
-        await foundCategory.destroy()
+        await foundCategory.removeAlbums(foundAlbum)
         res.redirect('/categories')
     }catch (err){
         console.log(err)
