@@ -1,26 +1,26 @@
 <h1 class="center"><%=user.username %>'s Collection</h1>
 
 <div class="flex-box">
-<% faves.forEach(fave => { %>
-    <div class="collection-container">
-        <p><%= fave.title %> by <a href="/artists/<%= fave.artist_id %> "><%= fave.artist %> </a><p> 
-        <a href="/albums/<%=fave.album_id%> "><img src=" <%= fave.img_url %>" width="250" alt=" <%=fave.title %> image"></a>
+    <% faves.forEach(fave => { %>
+        <div class="collection-container">
+                <p><%= fave.title %> by <a href="/artists/<%= fave.artist_id %> "><%= fave.artist %> </a><p> 
+                <a href="/albums/<%=fave.album_id%> "><img src=" <%= fave.img_url %>" width="250" alt=" <%=fave.title %> image"></a>
 
-       <form method="post" action="/categories/albums">
-            <select name="category" id="category">
-                <% categories.forEach(category => { %>
-                    <option value='{"id": "<%=category.id%>", "name":"<%=category.name%>"}'><%=category.name%> </option>
-                    <% }) %>
-                </select>
-                <input hidden type="text" id="albumId" value="<%=fave.id%>" name="albumId">
-                
-                <button type="submit" class="btn btn-primary">Add to Category</button>
-        </form>
+            <form method="post" action="/categories/albums">
+                    <select name="category" id="category">
+                        <% categories.forEach(category => { %>
+                            <option value='{"id": "<%=category.id%>", "name":"<%=category.name%>"}'><%=category.name%> </option>
+                            <% }) %>
+                        </select>
+                        <input hidden type="text" id="albumId" value="<%=fave.id%>" name="albumId">
+                        
+                        <button type="submit" class="btn btn-primary">Add to Category</button>
+            </form>
+                    
+            <form action="/albums/<%=fave.id%>?_method=DELETE" method="POST">
+                <input type="submit" class="btn btn-danger" value="Remove From Collection" />
+            </form>
             
-        <form action="/albums/<%=fave.id%>?_method=DELETE" method="POST">
-            <input type="submit" class="btn btn-danger" value="Remove From Collection" />
-        </form>
-    
-    </div>
-<% }) %>
+        </div>
+    <% }) %>
 <div>

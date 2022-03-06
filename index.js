@@ -40,8 +40,13 @@ app.use('/artists',require('./controllers/artists.js'))
 //ROUTES
 app.get('/',async (req,res)=>{
     try {
-        
-        res.render('home.ejs')
+       const response = await axios.get(`https://api.discogs.com/artists/12633/releases?token=${process.env.DISCOGS_TOKEN}`) 
+       const allReleases = response.data.releases
+       const filteredReleases = allReleases.filter(release=>{return release.type==='master'})
+       filteredReleases.sort((a,b)=>{
+       return  b.stats.community.in_collection - a.stats.community.in_collection
+       })
+       res.render('home.ejs',{releases: filteredReleases})
     }catch (err){
         console.log(err)
 
@@ -70,7 +75,7 @@ app.get('/results/:id',(req,res)=>{
         const allReleases = response.data.releases
         const filteredReleases = allReleases.filter(release=>{return release.type==='master'})
         filteredReleases.sort((a,b)=>{
-          return  b.stats.community.in_collection - a.stats.community.in_collection
+        return  b.stats.community.in_collection - a.stats.community.in_collection
         })
         res.render('albums/show.ejs',{releases: filteredReleases})
         // res.send(filteredReleases)
