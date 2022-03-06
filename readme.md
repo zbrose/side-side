@@ -1,4 +1,4 @@
-# Unit 2 Project - Side-Side: a virtual record collection 
+# Side-Side: a virtual record collection 
 
 Side-Side is a music database and organization app in which a user can get information on recordings by artist name, record title, or song title using the Discogs Api. Users may view an albums information such as credits and track listing. Users are also able to bookmark and categorize records, adding them to a want-list or their growing collection.
 
@@ -15,7 +15,7 @@ Side-Side is a music database and organization app in which a user can get infor
 ![ERD image](./Images/ERD_v2.png)
 
 ## RESTful Routing Chart
-![restful routing chart](./Images/restfulchart.png)
+<!-- ![restful routing chart](./Images/restfulchart.png) -->
 
 | VERB | URL pattern | Action | Description |
 |------|-------------|--------|-------------|
