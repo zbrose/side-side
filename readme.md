@@ -64,10 +64,9 @@ Albums Categories
 ![wireframe 7](./Images/wireframe-7.png/)  -->
 
 ## User Stories
-1. I want to be able to see a list of albums based on my search of album title, song title, or artist.
-2. I want to be able to see a selected albums information and credits.
-3. I want to be able to view comments and make comments on albums.
-4. I want to be able to add albums to a list of bookmarks that I can categorize.
+1. I want to be able to see a list of artist based on my search of artist.
+2. I want to be able to see a selected artist albums information and credits.
+3. I want to be able to add albums to a list of bookmarks that I can categorize.
 
 ## MVP Goals
 - Retrieve information from the Discogs Api and display it in seperate views
