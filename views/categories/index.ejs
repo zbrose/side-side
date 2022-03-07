@@ -15,7 +15,7 @@
             <a href="/categories/edit/<%=category.id%>"><button type="button" class="btn btn-primary">Edit Category</button></a>
             
             <form action="/categories/<%=category.id%>?_method=DELETE" method="POST">
-                <!-- <input type="submit" class="btn btn-danger" value="Delete Category" /> -->
+                <!-- <input hidden type="submit" class="btn btn-danger" value="" /> -->
                 <button type="submit" class="btn btn-danger">Delete Category</button>
             </form>
     </div>
