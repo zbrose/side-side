@@ -42,18 +42,16 @@ Home page
 ![wireframe 1](./Images/homepage.png)
 Artist page
 ![wireframe 2](./Images/artist.png)
+Artists Profile
+![wireframe 3](./Images/artistprofile.png)
+Artist Albums
+![wireframe 3](./Images/artistalbums.png)
+Collection
+![wireframe 3](./Images/collection.png)
 Categories
 ![wireframe 3](./Images/categories.png)
-
-
-<!-- 
-![wireframe 4](./Images/wireframe-4.png/)
-/search
-![wireframe 5](./Images/wireframe-5.png/)
-/results
-![wireframe 6](./Images/wireframe-6.png/)
-/results/:id
-![wireframe 7](./Images/wireframe-7.png/)  -->
+Albums Categories
+![wireframe 3](./Images/albumscategories.png)
 
 ## User Stories
 1. I want to be able to see a list of albums based on my search of album title, song title, or artist.
