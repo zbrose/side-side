@@ -5,6 +5,13 @@ Side-Side is a music database and organization app in which a user can get infor
 ## Deployed Project
 https://side-side.herokuapp.com/
 
+## Installation Instructions
+- Fork and clone this repo
+- Run `npm i` to install dependencies
+- go to https://www.discogs.com/settings/developers to obtain a personal access token for free
+- copy and paste token in .env file under `DISCOGS_TOKEN=<yourPersonalAccessToken>` to use in your routes
+
+
 ## Technologies
 - Postgres
 - Express, Ejs
