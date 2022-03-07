@@ -3,7 +3,7 @@
 Side-Side is a music database and organization app in which a user can get information on recordings by artist name, record title, or song title using the Discogs Api. Users may view an albums information such as credits and track listing. Users are also able to bookmark and categorize records, adding them to a want-list or their growing collection.
 
 ## Deployed Project
-(link here)
+https://side-side.herokuapp.com/
 
 ## Technologies
 - Postgres
