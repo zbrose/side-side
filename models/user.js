@@ -11,12 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.user.hasMany(models.album)
-      models.user.hasMany(models.comment)
+      // models.user.hasMany(models.album)
       models.user.hasMany(models.category)
+      models.user.belongsToMany(models.album,{through: 'users_albums'})
+     
+
     }
   }
   user.init({
+    username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
   }, {

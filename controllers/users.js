@@ -9,7 +9,7 @@ require('dotenv').config()
 
 // GET profile page
 router.get('/profile', async (req,res)=>{
-    if(req.cookies.userId){
+    if(res.locals.user.id){
         try{ 
             const currentUser = await db.user.findOne({where: {id: res.locals.user.id}})
             const faves = await currentUser.getAlbums()
@@ -33,7 +33,10 @@ router.get('/new',(req,res)=>{
 //POST new user to database
 router.post('/', async (req,res)=>{
    const [newUser, created] = await db.user.findOrCreate({
-        where: {email: req.body.email}
+        where: {
+            email: req.body.email,
+            username: req.body.username
+        }
     })
     if(!created){
         console.log("user already exists")
@@ -62,6 +65,7 @@ router.post('/:id/album', async (req,res)=>{
         res.redirect('/users/profile')
     }catch(err){
         console.log(err)
+        res.redirect('/users/profile')
     }
 })
 

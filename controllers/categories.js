@@ -11,7 +11,8 @@ router.get("/", async (req, res) => {
         try {
             const currentUser = await db.user.findOne({where: {id: res.locals.user.id}})
             const categories = await currentUser.getCategories()
-           res.render("categories/index", { categories });
+            // const albums = await currentUser.getAlbums()
+           res.render("categories/index", {categories});
        } catch (error) {
            console.log(error);
            res.status(400).render("main/404");
@@ -38,7 +39,6 @@ router.post('/', async (req,res)=>{
 
 //POST Album to a category
 router.post('/albums', async (req,res)=>{ 
-    console.log(req.body.category.id,'logged')
     try{    
         const category = JSON.parse(req.body.category)
         const newAlbum = await db.album.findOne({
@@ -56,6 +56,7 @@ router.post('/albums', async (req,res)=>{
         res.redirect('/categories')
     }catch (err){
         console.log(err)
+        res.redirect('/categories/new')
     }
 })
 
@@ -108,7 +109,6 @@ router.get('/edit/:id', async (req,res)=>{
         const category = await db.category.findOne({
             where: {
                 id:req.params.id
-                
             },
         })
         res.render('categories/edit.ejs', {category: category})
@@ -116,6 +116,7 @@ router.get('/edit/:id', async (req,res)=>{
         console.log(err)
     }
 })
+
 
 // DELETE category
 router.delete('/:categoryId',async (req,res)=>{
@@ -125,11 +126,24 @@ router.delete('/:categoryId',async (req,res)=>{
                 id: req.params.categoryId
             }
         })
-         await foundCategory.destroy()
+        await foundCategory.destroy()
         res.redirect('/categories')
     }catch (err){
         console.log(err)
     }
 })
+// //DELETE album from category
+// router.delete('/:id', async (req,res)=>{
+//     try {
+//         const foundAlbum = await db.album.findOne({
+//             where: {
+//                 id: req.body.albumId
+//             }
+//         })
+//         await foundAlbum.destroy()
+//     }catch (err){
+//         console.log(err)
+//     }
+// })
 
 module.exports = router
