@@ -8,8 +8,10 @@ https://side-side.herokuapp.com/
 ## Installation Instructions
 - Fork and clone this repo
 - Run `npm i` to install dependencies
+- in your integrated terminal run `sequelize create:db sf-auth` 
+- in your integrated terminal run `sequelize db:migrate` to create the tables
 - go to https://www.discogs.com/settings/developers to obtain a personal access token for free
-- copy and paste token in .env file under `DISCOGS_TOKEN=<yourPersonalAccessToken>` to use in your routes
+- copy and paste token in .env file under `DISCOGS_TOKEN=<yourPersonalAccessToken>` to use in your route
 
 
 ## Technologies
