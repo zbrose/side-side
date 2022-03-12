@@ -52,9 +52,9 @@ Home page
 Artist page
 ![wireframe 2](./Images/artist.png)
 Artists Profile
-![wireframe 3](./Images/artistprofile.png)
+![wireframe 3](./Images/artist-profile.png)
 Artist Albums
-![wireframe 3](./Images/artistalbums.png)
+![wireframe 3](./Images/artist-albums.png)
 Collection
 ![wireframe 3](./Images/collection.png)
 Categories
