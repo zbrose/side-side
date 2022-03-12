@@ -7,6 +7,7 @@ const cryptojs = require('crypto-js')
 const db = require('./models/index.js')
 const axios = require('axios')
 const methodOverride = require('method-override')
+const { render } = require('express/lib/response')
 
 
 
@@ -49,23 +50,20 @@ app.get('/',async (req,res)=>{
        res.render('home.ejs',{releases: filteredReleases})
     }catch (err){
         console.log(err)
-
     }
-
 })
 
-app.get('/results',(req,res)=>{
-    const url = `https://api.discogs.com/database/search?q=${req.query.q}&token=${process.env.DISCOGS_TOKEN}`
-    axios.get(url)
-    .then(response=>{
+app.get('/results', async (req,res)=>{
+    try{
+        const response = await axios.get(`https://api.discogs.com/database/search?q=${req.query.q}&token=${process.env.DISCOGS_TOKEN}`)
         const artistMatches = response.data.results
+        const itemCount = response.data.pagination.items
         const filteredArtists = artistMatches.filter(result=> {return result.type==='artist'})
-        res.render('artists/index.ejs',{artists: filteredArtists})  
-        // res.send(response.data.results)
-    })
-    .catch(err=>{
-        console.log(err)
-    })
+        res.render('artists/index.ejs',{artists: filteredArtists, items: itemCount})  
+        // res.send(response.data)
+    }catch (error){
+      console.log(error)
+    }
 })
 
 app.get('/results/:id',(req,res)=>{
