@@ -4,19 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/public/css/lux.css">
     <link rel="stylesheet" href="/public/css/style.css">
     <title>Side-Side</title>
 </head>
 <body>
 
-        <div class="header-box">
-            <!-- <img src="public/images/record.png" width="100" alt="record image"> -->
-            <h1 class="center header">Side-Side: virtual record collection</h1>
-            <!-- <img src="public/images/record.png" width="100" alt="record image"> -->
-        </div>
-    
-    
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
               <a class="navbar-brand" href="/">Side-Side</a>
@@ -26,12 +20,6 @@
           
               <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
-                  <!-- <li class="nav-item">
-                    <a class="nav-link active" href="/">Home
-                      <span class="visually-hidden">(current)</span>
-                    </a>
-                  </li> -->
-                  
                   <% if (user) { %>
                     <li class="nav-item">
                     <a class="nav-link" href="/users/profile">Collection</a>
@@ -40,7 +28,7 @@
                     <a class="nav-link" href="/categories">Categories</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="/users/profile">Hello, <%=user.username %></a>
+                    <a class="nav-link" href="/users/profile">Hello, <%=user.username %></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/users/logout">Log Out</a>
@@ -53,34 +41,16 @@
                     <a class="nav-link" href="/users/login">Log In</a>
                   </li>
                   <% } %> 
-                  <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                  </li> -->
                 </ul>
-                    
-                    <form method="GET" action="/results" class="d-flex">
-                      <input class="form-control me-sm-2" type="text" id="search" placeholder="Search for an artist" name="q" required>
-                      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                
+                <form method="GET" action="/results" class="d-flex">
+                  <input class="form-control me-sm-2" type="text" id="search" placeholder="Search for an artist" name="q" required>
+                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
              
               </div>
             </div>
           </nav>
-<!-- 
-          <h2>Search for an artist...</h2>
-          <form method="GET" action="/results">
-              <label for="search">Search: </label>
-              <input type="text" id="search" placeholder="search an artist" name="q">
-              <input type="submit">
-          </form> -->
-
     <%- body  %> 
     
 </body>
