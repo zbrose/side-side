@@ -37,11 +37,15 @@ app.use('/categories',require('./controllers/categories.js'))
 app.use('/artists',require('./controllers/artists.js'))
 
 
-
+//12634
 //ROUTES
+//gets random artist name
 app.get('/',async (req,res)=>{
     try {
-       const response = await axios.get(`https://api.discogs.com/artists/12633/releases?token=${process.env.DISCOGS_TOKEN}`) 
+    //    function getRndInt(min, max){
+    //        return Math.floor(Math.random()*(max-min))+min
+    //    } 
+       const response = await axios.get(`https://api.discogs.com/artists/23755/releases?token=${process.env.DISCOGS_TOKEN}`) 
        const allReleases = response.data.releases
        const filteredReleases = allReleases.filter(release=>{return release.type==='master'})
        filteredReleases.sort((a,b)=>{
@@ -49,7 +53,7 @@ app.get('/',async (req,res)=>{
        })
        res.render('home.ejs',{releases: filteredReleases})
     }catch (err){
-        console.log(err)
+      console.log(err)
     }
 })
 

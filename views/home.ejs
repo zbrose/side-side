@@ -3,18 +3,19 @@
     <h1>Side-Side</h1>
     <h3>A Virtual Record Collection</h3>
 
-    <p id="description">Welcome to Side-Side, a music database and virtual record collection.  Get started by searching for an artist.  You can view an artists profile and their body of work.  After you've found an album you're interested in, you may save it to your collection.  You can use the 'Collecton' page to view all your saved albums.  You may also group your saved records together by a category name by visiting the 'Categories' page.  </p>
-
+    <p id="description">Welcome to Side-Side, a music database and virtual record collection.  Get started by searching for an artist.  You can view an artists profile and their body of work.  After you've found an album you're interested in, you can save it to your personal collection.  You can use the 'Collecton' page to view all your saved albums.  You can also group your saved records together by a category name by visiting the 'Categories' page.  </p>
     <br>
-    <h2>Featured Records:</h2>
+
+    <h2>Featured Artist: <%=releases[0].artist%> </h2>
 </div>
+
 
 <div class="flex-box">
 
     <% releases.forEach((release, i)=> { %>
         <% if (i < 8) { %>
         <div class="album-container">
-                <p class="album-name"><%=release.title %>(<%=release.year %>) </p>
+                <p class="album-name"><%=release.title %>(<%=release.year %>)</p>
                 <img src="<%=release.thumb %>" width=200 height=200 alt="album cover image">
                 <div>
                     <a href="/albums/<%=release.id %> "><button type="button" class="btn btn-primary">See Details</button></a>
@@ -23,3 +24,5 @@
         <% } %>
     <% }) %>
 </div>
+
+
